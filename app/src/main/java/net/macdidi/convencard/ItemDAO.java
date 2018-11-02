@@ -1,4 +1,4 @@
-package net.macdidi.myandroidtutorial;
+package net.macdidi.convencard;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 // 資料功能類別

@@ -20,6 +20,7 @@
             android:padding="6sp"
             android:layout_margin="2sp"
             android:visibility="invisible" />
+
         <TableRow>
 
             <RelativeLayout

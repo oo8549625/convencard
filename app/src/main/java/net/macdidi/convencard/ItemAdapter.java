@@ -1,4 +1,4 @@
-package net.macdidi.myandroidtutorial;
+package net.macdidi.convencard;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;

@@ -1,22 +1,16 @@
-package net.macdidi.myandroidtutorial;
+package net.macdidi.convencard;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 
-import android.R.id.*;
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import android.preference.PreferenceActivity;
 import android.content.SharedPreferences;
-
-import android.preference.Preference;
 
 import android.preference.PreferenceManager;
 

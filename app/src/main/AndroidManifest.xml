@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.macdidi.myandroidtutorial">
+    package="net.macdidi.convencard">
     <!-- 需要攝錄鏡頭設備 -->
     <uses-feature android:name="android.hardware.camera" />
     <!-- 寫入外部儲存設備 -->
