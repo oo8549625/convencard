@@ -1,4 +1,4 @@
-package net.macdidi.myandroidtutorial;
+package net.macdidi.convencard;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -25,7 +25,6 @@ import android.preference.PreferenceManager;
 import java.io.File;
 
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
@@ -36,8 +35,6 @@ import com.google.zxing.integration.android.IntentIntegrator;
 
 import com.google.zxing.integration.android.IntentResult;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
-
-import org.w3c.dom.Text;
 
 public class ItemActivity extends AppCompatActivity {
 
@@ -79,7 +76,7 @@ public class ItemActivity extends AppCompatActivity {
         if (action.equals("net.macdidi.myandroidtutorial.EDIT_ITEM")) {
             // 接收記事物件與設定標題、內容
             item = (Item) intent.getExtras().getSerializable(
-                    "net.macdidi.myandroidtutorial.Item");
+                    "Item");
             title_text.setText(item.getTitle());
             content_text.setText(item.getContent());
         }
@@ -129,7 +126,7 @@ public class ItemActivity extends AppCompatActivity {
             // 取得回傳資料用的Intent物件
             Intent result = getIntent();
             // 設定回傳的記事物件
-            result.putExtra("net.macdidi.myandroidtutorial.Item", item);
+            result.putExtra("Item", item);
             setResult(Activity.RESULT_OK, result);
 
         }

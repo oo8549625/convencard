@@ -1,4 +1,4 @@
-package net.macdidi.myandroidtutorial;
+package net.macdidi.convencard;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -16,6 +16,11 @@ import java.util.*;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.widget.Toast;
+
+import net.macdidi.convencard.Item;
+import net.macdidi.convencard.ItemAdapter;
+import net.macdidi.convencard.ItemDAO;
+import net.macdidi.convencard.PrefActivity;
 
 public class MainActivity extends AppCompatActivity {
     // 宣告資料庫功能類別欄位變數
@@ -87,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         if (resultCode == Activity.RESULT_OK) {
             // 讀取記事物件
             Item item = (Item) data.getExtras().getSerializable(
-                    "net.macdidi.myandroidtutorial.Item");
+                    "Item");
 
             // 如果是新增記事
             if (requestCode == 0) {
@@ -144,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
                     // 設定記事編號與記事物件
                     intent.putExtra("position", position);
-                    intent.putExtra("net.macdidi.myandroidtutorial.Item", item);
+                    intent.putExtra("Item", item);
 
                     startActivityForResult(intent, 1);
                 }
