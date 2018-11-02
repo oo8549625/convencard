@@ -94,13 +94,9 @@ public class ItemActivity extends AppCompatActivity {
 
         // 取得顯示照片的ImageView元件
         picture = (ImageView) findViewById(R.id.picture);
-<<<<<<< HEAD
 
         temp = (ImageView) findViewById(R.id.temp);
 
-=======
-        temp = (ImageView) findViewById(R.id.temp);
->>>>>>> a8df84fdf797e247c83579e17437b70f82346ce9
     }
 
     // 點擊確定與取消按鈕都會呼叫這個方法
