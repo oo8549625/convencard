@@ -49,6 +49,7 @@ public class ItemActivity extends AppCompatActivity {
     private String recFileName;
     // 照片
     private ImageView picture;
+    private ImageView temp;
     // 寫入外部儲存設備授權請求代碼
     private static final int REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION = 100;
 
@@ -93,6 +94,7 @@ public class ItemActivity extends AppCompatActivity {
 
         // 取得顯示照片的ImageView元件
         picture = (ImageView) findViewById(R.id.picture);
+        temp = (ImageView) findViewById(R.id.temp);
     }
 
     // 點擊確定與取消按鈕都會呼叫這個方法
@@ -179,7 +181,7 @@ public class ItemActivity extends AppCompatActivity {
                     item.setFileName(fileName);
                     break;
                 case START_RECORD:
-                    item.setFileName(fileName);
+                    //item.setFileName(fileName);
                     break;
                 // 設定顏色
                 case START_COLOR:
@@ -238,9 +240,9 @@ public class ItemActivity extends AppCompatActivity {
             // 如果照片檔案存在
             if (file.exists()) {
                 // 顯示照片元件
-                picture.setVisibility(View.VISIBLE);
+                temp.setVisibility(View.VISIBLE);
                 // 設定照片
-                FileUtil.fileToImageView(file.getAbsolutePath(), picture);
+                FileUtil.fileToImageView(file.getAbsolutePath(), temp);
             }
         }
         if (item.getRecFileName() != null && item.getRecFileName().length() > 0) {
