@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:background="@drawable/rectangle_drawable"
-    tools:context="net.macdidi.convencard.AboutActivity">
+    tools:context="net.macdidi.myandroidtutorial.AboutActivity">
 
     <TextView
         android:layout_width="match_parent"

@@ -20,7 +20,10 @@
             android:padding="6sp"
             android:layout_margin="2sp"
             android:visibility="invisible" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> a8df84fdf797e247c83579e17437b70f82346ce9
         <TableRow>
 
             <RelativeLayout
