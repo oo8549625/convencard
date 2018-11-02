@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 使用Action名稱建立啟動另一個Activity元件需要的Intent物件
-                Intent intent = new Intent("net.macdidi.myandroidtutorial.ADD_ITEM");
+                Intent intent = new Intent("net.macdidi.convencard.ADD_ITEM");
                 /// 呼叫「startActivityForResult」，，第二個參數「0」表示執行新增
                 startActivityForResult(intent, 0);
             }
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     Intent intent = new Intent(
-                            "net.macdidi.myandroidtutorial.EDIT_ITEM");
+                            "net.macdidi.convencard.EDIT_ITEM");
 
                     // 設定記事編號與記事物件
                     intent.putExtra("position", position);
@@ -234,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
                 // 使用者選擇新增選單項目
                 case R.id.add_item:
                     // 使用Action名稱建立啟動另一個Activity元件需要的Intent物件
-                    Intent intent = new Intent("net.macdidi.myandroidtutorial.ADD_ITEM");
+                    Intent intent = new Intent("net.macdidi.convencard.ADD_ITEM");
                     /// 呼叫「startActivityForResult」，，第二個參數「0」表示執行新增
                     startActivityForResult(intent, 0);
                     break;

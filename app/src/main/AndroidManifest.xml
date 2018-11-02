@@ -25,9 +25,9 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <!-- 新增用的名稱 -->
-                <action android:name="net.macdidi.myandroidtutorial.ADD_ITEM" />
+                <action android:name="net.macdidi.convencard.ADD_ITEM" />
                 <!-- 修改用的名稱 -->
-                <action android:name="net.macdidi.myandroidtutorial.EDIT_ITEM" />
+                <action android:name="net.macdidi.convencard.EDIT_ITEM" />
                 <!-- 一定要加入，內容固定不變 -->
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -38,7 +38,7 @@
             android:theme="@android:style/Theme.Dialog" >
             <!-- 加入設定元件啟動用的Action名稱 -->
             <intent-filter>
-                <action android:name="net.macdidi.myandroidtutorial.CHOOSE_COLOR"/>
+                <action android:name="net.macdidi.convencard.CHOOSE_COLOR"/>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

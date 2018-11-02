@@ -55,7 +55,7 @@ public class ColorActivity extends Activity {
 
             // 經由設定元件啟動
             if (action != null &&
-                    action.equals("net.macdidi.myandroidtutorial.CHOOSE_COLOR")) {
+                    action.equals("net.macdidi.convencard.CHOOSE_COLOR")) {
                 // 建立SharedPreferences物件
                 SharedPreferences.Editor editor =
                         PreferenceManager.getDefaultSharedPreferences(
