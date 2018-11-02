@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MAT</string>
+    <string name="title">title</string>
+    <string name="enter_title">enter_title</string>
+    <string name="content">content</string>
+    <string name="enter_content">enter_content</string>
+
+    <string name="delete">delete</string>
+    <string name="delete_item">Are you sure delete %1$d item(s)？</string>
+
+    <string name="default_color">預設的顏色</string>
+    <string name="default_color_summary">新增記事的預設顏色</string>
+
+    <string name="default_notify">預設提醒時間</string>
+    <string name="default_notify_summary">在指定的時間之前通知</string>
+
+    <string name="write_external_storage_denied">沒有寫入外部儲存設備授權</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/take_picture"
+        android:title="CAMERA"
+        android:icon="@android:drawable/ic_menu_camera"
+        app:showAsAction="always"
+        android:onClick="clickMenuItem"/>
+
+    <item
+        android:id="@+id/take_bitmap"
+        android:title="BITMAP"
+        android:icon="@android:drawable/ic_menu_camera"
+        app:showAsAction="always"
+        android:onClick="clickMenuItem"/>
+
+    <item
+        android:id="@+id/color_edit_item"
+        android:title="COLOR_EDIT"
+        android:icon="@android:drawable/ic_menu_edit"
+        app:showAsAction="always"
+        android:onClick="clickMenuItem"/>
+
+
+</menu>

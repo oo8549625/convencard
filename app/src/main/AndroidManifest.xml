@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.macdidi.myandroidtutorial">
+    <!-- 需要攝錄鏡頭設備 -->
+    <uses-feature android:name="android.hardware.camera" />
+    <!-- 寫入外部儲存設備 -->
+    <uses-permission android:name=
+        "android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:theme="@android:style/Theme.Dialog" />
+        <!-- 記事項目元件 -->
+        <activity android:name=".ItemActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <!-- 新增用的名稱 -->
+                <action android:name="net.macdidi.myandroidtutorial.ADD_ITEM" />
+                <!-- 修改用的名稱 -->
+                <action android:name="net.macdidi.myandroidtutorial.EDIT_ITEM" />
+                <!-- 一定要加入，內容固定不變 -->
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 選擇顏色 -->
+        <activity
+            android:name=".ColorActivity"
+            android:theme="@android:style/Theme.Dialog" >
+            <!-- 加入設定元件啟動用的Action名稱 -->
+            <intent-filter>
+                <action android:name="net.macdidi.myandroidtutorial.CHOOSE_COLOR"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 設定元件 -->
+        <activity
+            android:name=".PrefActivity" />
+        <activity
+            android:name=".ScanActivity"
+            android:screenOrientation="portrait" />
+
+    </application>
+
+</manifest>
