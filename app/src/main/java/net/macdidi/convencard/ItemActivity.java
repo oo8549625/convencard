@@ -186,7 +186,7 @@ public class ItemActivity extends AppCompatActivity {
                 // 設定顏色
                 case START_COLOR:
                     int colorId = data.getIntExtra(
-                            "colorId", Colors.LIGHTGREY.parseColor());
+                            "colorId", Colors.WHITE.parseColor());
                     item.setColor(getColors(colorId));
                     break;
             }
@@ -212,7 +212,7 @@ public class ItemActivity extends AppCompatActivity {
     }
 
     public static Colors getColors(int color) {
-        Colors result = Colors.LIGHTGREY;
+        Colors result = Colors.WHITE;
 
         if (color == Colors.BLUE.parseColor()) {
             result = Colors.BLUE;
@@ -224,6 +224,8 @@ public class ItemActivity extends AppCompatActivity {
             result = Colors.ORANGE;
         } else if (color == Colors.RED.parseColor()) {
             result = Colors.RED;
+        }else if (color == Colors.WHITE.parseColor()) {
+            result = Colors.WHITE;
         }
 
         return result;

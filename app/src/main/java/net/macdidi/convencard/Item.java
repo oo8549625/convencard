@@ -21,7 +21,7 @@ public class Item implements java.io.Serializable {
     public Item() {
         title = "";
         content = "";
-        color = Colors.LIGHTGREY;
+        color =Colors.WHITE;
     }
 
     public Item(long id, long datetime, Colors color, String title,
