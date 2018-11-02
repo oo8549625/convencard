@@ -20,9 +20,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".AboutActivity"
-            android:theme="@android:style/Theme.Dialog" />
         <!-- 記事項目元件 -->
         <activity android:name=".ItemActivity"
             android:screenOrientation="portrait">
