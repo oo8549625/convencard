@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:stretchColumns="1"
-        tools:context="net.macdidi.convencard.ItemActivity">
+        tools:context="net.macdidi.myandroidtutorial.ItemActivity">
         <!-- 顯示圖片 -->
         <ImageView
             android:id="@+id/temp"
