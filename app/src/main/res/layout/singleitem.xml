@@ -11,7 +11,14 @@
         android:layout_height="72sp"
         android:layout_margin="3sp"
         android:background="@drawable/item_drawable" >
-
+        <!-- 勾選 -->
+        <ImageView
+            android:id="@+id/picture_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:src="@drawable/selected_icon"
+            android:visibility="invisible" />
         <!-- 勾選 -->
         <ImageView
             android:id="@+id/selected_item"
