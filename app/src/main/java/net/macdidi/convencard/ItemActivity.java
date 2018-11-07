@@ -74,7 +74,7 @@ public class ItemActivity extends AppCompatActivity {
         String action = intent.getAction();
 
         // 如果是修改記事
-        if (action.equals("net.macdidi.convencard.EDIT_ITEM")) {
+        if (action.equals("net.macdidi.myandroidtutorial.EDIT_ITEM")) {
             // 接收記事物件與設定標題、內容
             item = (Item) intent.getExtras().getSerializable(
                     "Item");
@@ -94,6 +94,7 @@ public class ItemActivity extends AppCompatActivity {
 
         // 取得顯示照片的ImageView元件
         picture = (ImageView) findViewById(R.id.picture);
+
         temp = (ImageView) findViewById(R.id.temp);
 
     }
@@ -113,7 +114,7 @@ public class ItemActivity extends AppCompatActivity {
 
             // 如果是修改記事
             if (getIntent().getAction().equals(
-                    "net.macdidi.convencard.EDIT_ITEM")) {
+                    "net.macdidi.myandroidtutorial.EDIT_ITEM")) {
                 item.setLastModify(new Date().getTime());
             }
             // 新增記事
@@ -182,6 +183,7 @@ public class ItemActivity extends AppCompatActivity {
                     item.setFileName(fileName);
                     break;
                 case START_RECORD:
+                    //item.setFileName(fileName);
                     break;
                 // 設定顏色
                 case START_COLOR:

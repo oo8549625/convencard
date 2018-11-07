@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="6sp"
     android:spacing="3sp"
-    tools:context="net.macdidi.convencard.ColorActivity">
+    tools:context="net.macdidi.myandroidtutorial.ColorActivity">
 
     <LinearLayout
         android:id="@+id/color_gallery"
