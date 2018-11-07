@@ -35,10 +35,10 @@
         <!-- 選擇顏色 -->
         <activity
             android:name=".ColorActivity"
-            android:theme="@android:style/Theme.Dialog" >
+            android:theme="@android:style/Theme.Dialog">
             <!-- 加入設定元件啟動用的Action名稱 -->
             <intent-filter>
-                <action android:name="net.macdidi.convencard.CHOOSE_COLOR"/>
+                <action android:name="net.macdidi.myandroidtutorial.CHOOSE_COLOR"/>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

@@ -101,7 +101,6 @@ public class FileUtil {
             Log.e("fileToImageView", fileName + " not found.");
         }
     }
-
     // 產生唯一的檔案名稱
     public static String getUniqueFileName() {
         // 使用年月日_時分秒格式為檔案名稱

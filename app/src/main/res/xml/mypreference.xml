@@ -10,9 +10,9 @@
         android:summary="@string/default_color_summary">
         <!-- 啟動選擇顏色元件 -->
         <intent
-            android:action="net.macdidi.myandroidtutorial.CHOOSE_COLOR"
-            android:targetPackage="net.macdidi.myandroidtutorial"
-            android:targetClass="net.macdidi.myandroidtutorial.ColorActivity"/>
+            android:action="net.macdidi.convencard.CHOOSE_COLOR"
+            android:targetPackage="net.macdidi.convencard"
+            android:targetClass="net.macdidi.convencard.ColorActivity"/>
     </Preference>
 
     <!-- 預設提醒時間 -->
