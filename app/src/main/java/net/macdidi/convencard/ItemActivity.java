@@ -40,8 +40,7 @@ public class ItemActivity extends AppCompatActivity {
 
     // 啟動功能用的請求代碼
     private static final int START_CAMERA = 0;
-    private static final int START_RECORD = 1;
-    private static final int START_COLOR = 2;
+    private static final int START_COLOR = 1;
 
     // 照片檔案名稱
     private String fileName;
@@ -57,9 +56,6 @@ public class ItemActivity extends AppCompatActivity {
     private Item item;
     private EditText title_text, content_text;
     private String test;
-
-    //小吃bar
-    private Snackbar snackbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,8 +176,6 @@ public class ItemActivity extends AppCompatActivity {
                 case START_CAMERA:
                     // 設定照片檔案名稱
                     item.setFileName(fileName);
-                    break;
-                case START_RECORD:
                     break;
                 // 設定顏色
                 case START_COLOR:
@@ -350,9 +344,9 @@ public class ItemActivity extends AppCompatActivity {
     }
 
     // 覆寫請求授權後執行的方法
-//     第一個參數是請求代碼
-//     第二個參數是請求授權的名稱
-//     第三個參數是請求授權的結果，PERMISSION_GRANTED或PERMISSION_DENIED
+    // 第一個參數是請求代碼
+    // 第二個參數是請求授權的名稱
+    // 第三個參數是請求授權的結果，PERMISSION_GRANTED或PERMISSION_DENIED
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String[] permissions,
