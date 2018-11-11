@@ -10,14 +10,15 @@
         android:layout_height="match_parent"
         android:stretchColumns="1"
         tools:context="net.macdidi.convencard.ItemActivity">
-        <!-- 顯示圖片 -->
+        <!-- 顯示照片 -->
         <ImageView
             android:id="@+id/temp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rectangle_drawable"
             android:adjustViewBounds="true"
-            android:padding="6sp"
+            android:background="@drawable/rectangle_drawable"
+            android:paddingLeft="16sp"
+            android:paddingRight="16sp"
             android:layout_margin="2sp"
             android:visibility="invisible" />
         <TableRow>
@@ -70,13 +71,14 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"/>
 
-        <!-- 顯示圖片 -->
+        <!-- 顯示條碼圖 -->
         <ImageView
             android:id="@+id/picture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rectangle_drawable"
-            android:padding="6sp"
+            android:paddingLeft="16sp"
+            android:paddingRight="16sp"
             android:layout_margin="2sp"
             android:visibility="invisible" />
 

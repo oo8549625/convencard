@@ -14,7 +14,8 @@ import java.util.Date;
 public class FileUtil {
 
     // 應用程式儲存檔案的目錄
-    public static final String APP_DIR = "androidtutorial";
+    public static final String APP_DIR = "convenient";
+
 
     // 外部儲存設備是否可寫入
     public static boolean isExternalStorageWritable() {
