@@ -61,16 +61,6 @@
 
         </TableRow>
 
-        <Button
-            android:id="@+id/produce"
-            android:onClick="OnClickProduce"
-            android:text="手動產生條碼圖"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:background="@color/text_background"
-            android:textColor="@color/text_color"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"/>
-
         <!-- 顯示條碼圖 -->
         <ImageView
             android:id="@+id/picture"

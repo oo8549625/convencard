@@ -12,7 +12,7 @@
     <item
         android:id="@+id/take_bitmap"
         android:title="BITMAP"
-        android:icon="@android:drawable/ic_menu_camera"
+        android:icon="@drawable/bitmap_icon"
         app:showAsAction="always"
         android:onClick="clickMenuItem"/>
 

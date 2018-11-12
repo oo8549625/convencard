@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.Activity;
@@ -16,6 +17,7 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import java.io.FileNotFoundException;
@@ -65,6 +67,12 @@ public class ItemActivity extends AppCompatActivity {
     //照片名稱
     private Uri imageUri;
 
+    //商店名稱和卡號
+    private EditText titleEdit;
+    private EditText contentEdit;
+    private TextInputLayout titleTextInput;
+    private TextInputLayout contentTextInput;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +98,7 @@ public class ItemActivity extends AppCompatActivity {
             item = new Item();
         }
 
+
     }
 
     private void processViews() {
@@ -100,46 +109,72 @@ public class ItemActivity extends AppCompatActivity {
         picture = (ImageView) findViewById(R.id.picture);
         temp = (ImageView) findViewById(R.id.temp);
 
+        // 取得比對有無輸入的editText元件
+        titleEdit = (EditText) findViewById(R.id.title_text);
+        titleTextInput = (TextInputLayout) findViewById(R.id.title_layout);
+        contentEdit = (EditText) findViewById(R.id.content_text);
+        contentTextInput = (TextInputLayout) findViewById(R.id.content_layout);
     }
 
     // 點擊確定與取消按鈕都會呼叫這個方法
     public void onSubmit(View view) {
-        // 確定按鈕
-        if (view.getId() == R.id.ok_item) {
-
-            // 讀取使用者輸入的標題與內容
-            String titleText = title_text.getText().toString();
-            String contentText = content_text.getText().toString();
-
-            // 設定記事物件的標題與內容
-            item.setTitle(titleText);
-            item.setContent(contentText);
-
-            // 如果是修改記事
-            if (getIntent().getAction().equals(
-                    "net.macdidi.convencard.EDIT_ITEM")) {
-                item.setLastModify(new Date().getTime());
-            }
-            // 新增記事
-            else {
-                item.setDatetime(new Date().getTime());
-                // 建立SharedPreferences物件
-                SharedPreferences sharedPreferences =
-                        PreferenceManager.getDefaultSharedPreferences(this);
-                // 讀取設定的預設顏色
-                int color = sharedPreferences.getInt("DEFAULT_COLOR", -1);
-                item.setColor(getColors(color));
-            }
-            // 取得回傳資料用的Intent物件
-            Intent result = getIntent();
-            // 設定回傳的記事物件
-            result.putExtra("Item", item);
-            setResult(Activity.RESULT_OK, result);
+        // 沒有輸入商店名稱或卡號
+        if(titleEdit.getText().length() <= 0){
+            titleTextInput.setErrorEnabled(true);
+            titleTextInput.setError("請輸入商店名稱");
 
         }
+        else if(contentEdit.getText().length() <= 0) {
+            contentTextInput.setErrorEnabled(true);
+            contentTextInput.setError("請輸入卡號");
+        }
+        else {
+            // 確定按鈕
+            if (view.getId() == R.id.ok_item && titleEdit.getText().length() > 0) {
 
-        // 結束
-        finish();
+                // 讀取使用者輸入的標題與內容
+                String titleText = title_text.getText().toString();
+                String contentText = content_text.getText().toString();
+                titleTextInput.setErrorEnabled(false);
+
+                // 設定記事物件的標題與內容
+                item.setTitle(titleText);
+                item.setContent(contentText);
+
+                // 如果是修改記事
+                if (getIntent().getAction().equals(
+                        "net.macdidi.convencard.EDIT_ITEM")) {
+                    item.setLastModify(new Date().getTime());
+                }
+                // 新增記事
+                else {
+                    item.setDatetime(new Date().getTime());
+                    // 建立SharedPreferences物件
+                    SharedPreferences sharedPreferences =
+                            PreferenceManager.getDefaultSharedPreferences(this);
+                    // 讀取設定的預設顏色
+                    int color = sharedPreferences.getInt("DEFAULT_COLOR", -1);
+                    item.setColor(getColors(color));
+                }
+                // 取得回傳資料用的Intent物件
+                Intent result = getIntent();
+                // 設定回傳的記事物件
+                result.putExtra("Item", item);
+                setResult(Activity.RESULT_OK, result);
+
+            }
+            if (view.getId() == R.id.ok_item && contentEdit.getText().length() > 0){
+                contentTextInput.setErrorEnabled(false);
+                String contentText = content_text.getText().toString();
+                item.setContent(contentText);
+                item.setRecFileName(contentText);
+                Bitmap a = encodeAsBitmap(item.getContent());
+                picture.setVisibility(View.VISIBLE);
+                picture.setImageBitmap(a);
+            }
+            // 結束
+            finish();
+        }
     }
 
     public void processScan()
@@ -213,8 +248,8 @@ public class ItemActivity extends AppCompatActivity {
         //intent.putExtra("crop", "true");
         //intent.putExtra("aspectX", 1);
         //intent.putExtra("aspectY", 1);
-        intent.putExtra("outputX", 300);
-        intent.putExtra("outputY", 300);
+        intent.putExtra("outputX", 960);
+        intent.putExtra("outputY", 500);
         intent.putExtra("scale", true);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         intent.putExtra("return-data", false);
@@ -308,19 +343,6 @@ public class ItemActivity extends AppCompatActivity {
                 startActivityForResult(
                         new Intent(this, ColorActivity.class), START_COLOR);
                 break;
-        }
-    }
-
-    public void OnClickProduce(View view)
-    {
-        if (view.getId() == R.id.produce) {
-            String contentText = content_text.getText().toString();
-            item.setContent(contentText);
-            item.setRecFileName(contentText);
-            Bitmap a = encodeAsBitmap(item.getContent());
-            picture.setVisibility(View.VISIBLE);
-            picture.setImageBitmap(a);
-
         }
     }
 

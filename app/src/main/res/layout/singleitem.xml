@@ -1,41 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/type_color"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
-
-    <!-- 顏色分類 -->
-    <RelativeLayout
-        android:id="@+id/type_color"
-        android:layout_width="72sp"
-        android:layout_height="72sp"
-        android:layout_margin="3sp"
-        android:background="@drawable/item_drawable" >
-        <!-- 勾選 -->
-        <ImageView
-            android:id="@+id/picture_item"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:src="@drawable/selected_icon"
-            android:visibility="invisible" />
-        <!-- 勾選 -->
-        <ImageView
-            android:id="@+id/selected_item"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:src="@drawable/selected_icon"
-            android:visibility="invisible" />
-
-    </RelativeLayout>
+    android:background="@drawable/item_drawable"
+    android:layout_margin="3sp"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="5sp"
+        android:orientation="vertical"
+        >
+
+        <!-- 顏色分類 -->
+        <ImageView
+        android:id="@+id/picture"
+        android:layout_width="110sp"
+        android:layout_height="57sp"
         android:layout_margin="3sp"
-        android:gravity="center_vertical"
-        android:orientation="vertical" >
+        android:layout_gravity="center"
+        android:background="@drawable/rectangle_drawable">
+        </ImageView>
 
         <!-- 標題 -->
         <TextView
@@ -43,16 +30,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:gravity="center_vertical" />
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#fff"/>
 
-        <!-- 日期時間 -->
-        <TextView
-            android:id="@+id/date_text"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical" />
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
