@@ -64,18 +64,6 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         titleView.setText(item.getTitle());
         dateView.setText(item.getLocaleDatetime());
 
-        if (item.getFileName() != null && item.getFileName().length() > 0) {
-            // 照片檔案物件
-            File file = configFileName("P", ".jpg",item);
-
-            // 如果照片檔案存在
-            if (file.exists()) {
-                // 顯示照片元件
-                picture.setVisibility(View.VISIBLE);
-                // 設定照片
-                FileUtil.fileToImageView(file.getAbsolutePath(), picture);
-            }
-        }
         // 設定是否已選擇
         selectedItem.setVisibility(item.isSelected() ? View.VISIBLE : View.INVISIBLE);
         fileName=null;
@@ -94,18 +82,6 @@ public class ItemAdapter extends ArrayAdapter<Item> {
     public Item get(int index) {
         return items.get(index);
     }
-    private File configFileName(String prefix, String extension,Item item) {
-        // 如果記事資料已經有檔案名稱
-        if (item.getFileName() != null && item.getFileName().length() > 0) {
-            fileName = item.getFileName();
-        }
-        // 產生檔案名稱
-        else {
-            fileName = FileUtil.getUniqueFileName();
-        }
 
-        return new File(FileUtil.getExternalStorageDir(FileUtil.APP_DIR),
-                prefix + fileName + extension);
-    }
 }
 

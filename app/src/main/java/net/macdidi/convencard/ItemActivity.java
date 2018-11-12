@@ -3,8 +3,10 @@ package net.macdidi.convencard;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +18,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.*;
 import java.util.*;
 
@@ -41,6 +45,7 @@ public class ItemActivity extends AppCompatActivity {
     // 啟動功能用的請求代碼
     private static final int START_CAMERA = 0;
     private static final int START_COLOR = 1;
+    private static final int START_CROP = 2;
 
     // 照片檔案名稱
     private String fileName;
@@ -56,6 +61,9 @@ public class ItemActivity extends AppCompatActivity {
     private Item item;
     private EditText title_text, content_text;
     private String test;
+
+    //照片名稱
+    private Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,12 +147,12 @@ public class ItemActivity extends AppCompatActivity {
 
         IntentIntegrator integrator = new IntentIntegrator(this);
 
-        // 设置要扫描的条码类型，ONE_D_CODE_TYPES：一维码，QR_CODE_TYPES-二维码
+        // ONE_D_CODE_TYPES：一维码，QR_CODE_TYPES-二维码，QRcode
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES);
         integrator.setCaptureActivity(ScanActivity.class);
-        integrator.setPrompt("請對準卡片上的條碼"); //底部的提示文字，设为""可以置空
-        integrator.setCameraId(0); //前置或者后置摄像头
-        integrator.setBeepEnabled(true); //扫描成功的「哔哔」声，默认开启
+        integrator.setPrompt("請對準卡片上的條碼"); //底部的提示文字
+        integrator.setCameraId(0); //前置或後置鏡頭
+        integrator.setBeepEnabled(true); //掃描成功的BIBI聲
         integrator.setBarcodeImageEnabled(true);
         integrator.initiateScan();
     }
@@ -176,6 +184,9 @@ public class ItemActivity extends AppCompatActivity {
                 case START_CAMERA:
                     // 設定照片檔案名稱
                     item.setFileName(fileName);
+                    if (resultCode == RESULT_OK) {
+                        cropImageUri(imageUri, START_CROP);
+                    }
                     break;
                 // 設定顏色
                 case START_COLOR:
@@ -183,8 +194,34 @@ public class ItemActivity extends AppCompatActivity {
                             "colorId", Colors.LIGHTGREY.parseColor());
                     item.setColor(getColors(colorId));
                     break;
+                case START_CROP:
+                    if (resultCode == RESULT_OK) {
+                        try {
+                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+                            temp.setImageBitmap(bitmap);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    break;
             }
         }
+    }
+    private void cropImageUri(Uri imageUri, int requestCode){
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(imageUri, "image/*"); //這裡的imageUri指向拍照後得到的原圖
+        //intent.putExtra("crop", "true");
+        //intent.putExtra("aspectX", 1);
+        //intent.putExtra("aspectY", 1);
+        intent.putExtra("outputX", 300);
+        intent.putExtra("outputY", 300);
+        intent.putExtra("scale", true);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        intent.putExtra("return-data", false);
+        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+        intent.putExtra("noFaceDetection", true); // no face detection
+        intent = Intent.createChooser(intent, "裁剪圖片");
+        startActivityForResult(intent, requestCode);
     }
 
     public static Bitmap encodeAsBitmap(String str) {
@@ -192,9 +229,8 @@ public class ItemActivity extends AppCompatActivity {
         BitMatrix result = null;
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
-            //查看各参数解析
+            //個參數解析
             result = multiFormatWriter.encode(str, BarcodeFormat.CODE_128, 800, 300);
-            // 使用 ZXing Android Embedded 要写的代码
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
             bitmap = barcodeEncoder.createBitmap(result);
         } catch (WriterException e) {
@@ -304,15 +340,16 @@ public class ItemActivity extends AppCompatActivity {
 
     // 拍攝照片
     private void takePicture() {
+
         // 啟動相機元件用的Intent物件
         Intent intentCamera =
                 new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
         // 照片檔案名稱
         File pictureFile = configFileName("P", ".jpg");
-        Uri uri = Uri.fromFile(pictureFile);
+        imageUri = Uri.fromFile(pictureFile);
         // 設定檔案名稱
-        intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+        intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         // 啟動相機元件
         startActivityForResult(intentCamera, START_CAMERA);
     }

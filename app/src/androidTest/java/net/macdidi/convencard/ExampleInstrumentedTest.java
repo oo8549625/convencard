@@ -1,4 +1,4 @@
-package net.macdidi.myandroidtutorial;
+package net.macdidi.convencard;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("net.macdidi.myandroidtutorial", appContext.getPackageName());
+        assertEquals("net.macdidi.convencard", appContext.getPackageName());
     }
 }
