@@ -119,7 +119,10 @@ public class ItemActivity extends AppCompatActivity {
     // 點擊確定與取消按鈕都會呼叫這個方法
     public void onSubmit(View view) {
         // 沒有輸入商店名稱或卡號
-        if(titleEdit.getText().length() <= 0){
+        if(view.getId() == R.id.cancel_item){
+            finish();
+        }
+        else if(titleEdit.getText().length() <= 0){
             titleTextInput.setErrorEnabled(true);
             titleTextInput.setError("請輸入商店名稱");
 
