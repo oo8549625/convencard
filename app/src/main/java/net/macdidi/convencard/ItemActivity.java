@@ -50,7 +50,7 @@ public class ItemActivity extends AppCompatActivity {
     private static final int START_CROP = 2;
 
     // 照片檔案名稱
-    private String fileName;
+    private String fileName=null;
     // bitmap檔案名稱
     private String recFileName;
     // 照片
@@ -225,6 +225,7 @@ public class ItemActivity extends AppCompatActivity {
                     if (resultCode == RESULT_OK) {
                         cropImageUri(imageUri, START_CROP);
                     }
+                    fileName=null;
                     break;
                 // 設定顏色
                 case START_COLOR:

@@ -13,26 +13,58 @@
         android:layout_margin="5sp"
         android:orientation="vertical"
         >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="5sp"
+            android:orientation="vertical">
+            <!-- 顏色分類 -->
+            <ImageView
+                android:id="@+id/picture"
+                android:layout_width="110sp"
+                android:layout_height="57sp"
+                android:layout_margin="3sp"
+                android:layout_gravity="center"
+                android:visibility="invisible"
+                android:background="@drawable/rectangle_drawable">
+            </ImageView>
+            <!-- 標題 -->
+            <TextView
+                android:id="@+id/big_title"
+                android:layout_width="110sp"
+                android:layout_height="57dp"
+                android:layout_gravity="center"
+                android:layout_margin="3sp"
+                android:layout_weight="1"
+                android:textSize = "26sp"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:textColor="#fff" />
+            <!-- 顏色分類 -->
+            <ImageView
+                android:id="@+id/selected_item"
+                android:layout_width="110sp"
+                android:layout_height="57sp"
+                android:layout_margin="3sp"
+                android:layout_gravity="center"
+                android:src="@drawable/selected_icon"
+                android:visibility="invisible">
+            </ImageView>
 
-        <!-- 顏色分類 -->
-        <ImageView
-        android:id="@+id/picture"
-        android:layout_width="110sp"
-        android:layout_height="57sp"
-        android:layout_margin="3sp"
-        android:layout_gravity="center"
-        android:background="@drawable/rectangle_drawable">
-        </ImageView>
+        </RelativeLayout>
+
+
 
         <!-- 標題 -->
         <TextView
             android:id="@+id/title_text"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:gravity="center"
-            android:textColor="#fff"/>
+            android:textColor="#fff" />
 
 
     </LinearLayout>

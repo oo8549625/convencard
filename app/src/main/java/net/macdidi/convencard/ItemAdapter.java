@@ -56,13 +56,15 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         RelativeLayout typeColor = (RelativeLayout) itemView.findViewById(R.id.type_color);
         TextView titleView = (TextView) itemView.findViewById(R.id.title_text);
         ImageView picture = (ImageView) itemView.findViewById(R.id.picture);
+        ImageView selectedItem = (ImageView) itemView.findViewById(R.id.selected_item);
+        TextView bigtitle=(TextView)itemView.findViewById(R.id.big_title);
         // 設定記事顏色
         GradientDrawable background = (GradientDrawable)typeColor.getBackground();
         background.setColor(item.getColor().parseColor());
 
         // 設定標題
         titleView.setText(item.getTitle());
-
+        bigtitle.setText(item.getTitle());
         // 設定照片
         // 如果記事資料已經有檔案名稱
         if (item.getFileName() != null && item.getFileName().length() > 0) {
@@ -72,11 +74,18 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             if (file.exists()) {
                 // 顯示照片元件
                 picture.setVisibility(View.VISIBLE);
+                bigtitle.setVisibility(View.INVISIBLE);
                 // 設定照片
                 FileUtil.fileToImageView(file.getAbsolutePath(), picture);
             }
         }
-
+        else
+        {
+            picture.setVisibility(View.INVISIBLE);
+            bigtitle.setVisibility(View.VISIBLE);
+        }
+        // 設定是否已選擇
+        selectedItem.setVisibility(item.isSelected() ? View.VISIBLE : View.INVISIBLE);
         // 設定是否已選擇
 
         return itemView;
