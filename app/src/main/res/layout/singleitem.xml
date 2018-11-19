@@ -52,16 +52,15 @@
         </RelativeLayout>
 
 
-
         <!-- 標題 -->
         <TextView
             android:id="@+id/title_text"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="#fff" />
-
 
     </LinearLayout>
 
