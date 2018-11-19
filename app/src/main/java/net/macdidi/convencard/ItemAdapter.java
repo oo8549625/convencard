@@ -74,7 +74,6 @@ public class ItemAdapter extends ArrayAdapter<Item> {
             if (file.exists()) {
                 // 顯示照片元件
                 picture.setVisibility(View.VISIBLE);
-                titleView.setVisibility(View.VISIBLE);
                 bigtitle.setVisibility(View.INVISIBLE);
                 // 設定照片
                 FileUtil.fileToImageView(file.getAbsolutePath(), picture);
