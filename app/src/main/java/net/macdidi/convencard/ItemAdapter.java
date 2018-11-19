@@ -86,7 +86,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         }
         // 設定是否已選擇
         selectedItem.setVisibility(item.isSelected() ? View.VISIBLE : View.INVISIBLE);
-        // 設定是否已選擇
+        // 設定是否已選擇big_title
 
         return itemView;
     }

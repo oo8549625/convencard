@@ -252,7 +252,7 @@ public class ItemActivity extends AppCompatActivity {
         //intent.putExtra("crop", "true");
         //intent.putExtra("aspectX", 1);
         //intent.putExtra("aspectY", 1);
-        intent.putExtra("outputX", 960);
+        intent.putExtra("outputX", 900);
         intent.putExtra("outputY", 500);
         intent.putExtra("scale", true);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
