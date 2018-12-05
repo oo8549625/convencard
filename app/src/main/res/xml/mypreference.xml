@@ -15,15 +15,4 @@
             android:targetClass="net.macdidi.convencard.ColorActivity"/>
     </Preference>
 
-    <!-- 預設提醒時間 -->
-    <!-- android:entries 設定畫面顯示選項內容的陣列資源 -->
-    <!-- android:entriyValues 設定儲存選項資料的陣列資源 -->
-    <!-- android:defaultValue 設定選項預設項目編號 -->
-    <ListPreference
-        android:key="NOTIFY_MINUTES"
-        android:title="@string/default_notify"
-        android:summary="@string/default_notify_summary"
-        android:entries="@array/notify_minutes_array"
-        android:entryValues="@array/notify_minutes_value_array"
-        android:defaultValue="5" />
 </PreferenceScreen>
