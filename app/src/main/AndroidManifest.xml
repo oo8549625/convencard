@@ -44,10 +44,12 @@
         </activity>
         <!-- 設定元件 -->
         <activity
-            android:name=".PrefActivity" />
+            android:name=".PrefActivity" >
+        </activity>
         <activity
             android:name=".ScanActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+        </activity>
 
     </application>
 

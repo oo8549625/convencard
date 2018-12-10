@@ -17,26 +17,26 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:background="@drawable/rectangle_drawable"
-            android:paddingLeft="16sp"
-            android:paddingRight="16sp"
-            android:layout_margin="2sp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:layout_margin="@dimen/default_margin"
             android:visibility="invisible" />
         <TableRow>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="10sp">
+                android:paddingTop="@dimen/default_padding">
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/title_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp">
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin">
                     <EditText
                         android:id="@+id/title_text"
                         android:hint="@string/title"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/title_txt_size"
                         android:textColor="#000000"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -46,17 +46,16 @@
                     android:id="@+id/content_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp">
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin">
 
                     <EditText
                         android:id="@+id/content_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:hint="@string/content"
                         android:textColor="#000000"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/title_txt_size" />
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
 
@@ -66,8 +65,8 @@
             android:id="@+id/code_generation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:onClick="onSubmit"
             android:text="手動條碼生成按鈕"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -79,8 +78,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rectangle_drawable"
-            android:paddingLeft="16sp"
-            android:paddingRight="16sp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
             android:layout_margin="2sp"
             android:visibility="invisible" />
 
@@ -95,16 +94,16 @@
                 android:id="@+id/cancel_item"
                 android:text="@android:string/cancel"
                 android:onClick="onSubmit"
-                android:padding="6sp"
-                android:layout_margin="2sp"
+                android:padding="@dimen/default_padding"
+                android:layout_margin="@dimen/default_margin"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <Button
                 android:id="@+id/ok_item"
                 android:text="@android:string/ok"
                 android:onClick="onSubmit"
-                android:padding="6sp"
-                android:layout_margin="2sp"
+                android:padding="@dimen/default_padding"
+                android:layout_margin="@dimen/default_margin"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
         </TableLayout>

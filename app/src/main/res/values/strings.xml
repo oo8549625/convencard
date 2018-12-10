@@ -14,24 +14,4 @@
 
     <string name="write_external_storage_denied">沒有寫入外部儲存設備授權</string>
 
-    <string name="default_notify">預設提醒時間</string>
-    <string name="default_notify_summary">在指定的時間之前通知</string>
-
-
-    <string-array name="notify_minutes_array">
-        <item>五分鐘</item>
-        <item>十分鐘</item>
-        <item>二十分鐘</item>
-        <item>三十分鐘</item>
-        <item>六十分鐘</item>
-    </string-array>
-
-    <string-array name="notify_minutes_value_array">
-        <item>5</item>
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>60</item>
-    </string-array>
-
 </resources>
