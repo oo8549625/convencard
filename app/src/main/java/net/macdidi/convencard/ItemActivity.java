@@ -122,14 +122,24 @@ public class ItemActivity extends AppCompatActivity {
         if(view.getId() == R.id.cancel_item){
             finish();
         }
+        else if(contentEdit.getText().length() <= 0) {
+            contentTextInput.setErrorEnabled(true);
+            contentTextInput.setError("請輸入卡號");
+        }
+        else if(view.getId() == R.id.code_generation)
+        {
+            contentTextInput.setErrorEnabled(false);
+            String contentText = content_text.getText().toString();
+            item.setContent(contentText);
+            item.setRecFileName(contentText);
+            Bitmap a = encodeAsBitmap(item.getContent());
+            picture.setVisibility(View.VISIBLE);
+            picture.setImageBitmap(a);
+        }
         else if(titleEdit.getText().length() <= 0){
             titleTextInput.setErrorEnabled(true);
             titleTextInput.setError("請輸入商店名稱");
 
-        }
-        else if(contentEdit.getText().length() <= 0) {
-            contentTextInput.setErrorEnabled(true);
-            contentTextInput.setError("請輸入卡號");
         }
         else {
             // 確定按鈕
@@ -182,9 +192,7 @@ public class ItemActivity extends AppCompatActivity {
 
     public void processScan()
     {
-
         IntentIntegrator integrator = new IntentIntegrator(this);
-
         // ONE_D_CODE_TYPES：一维码，QR_CODE_TYPES-二维码，QRcode
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES);
         integrator.setCaptureActivity(ScanActivity.class);
