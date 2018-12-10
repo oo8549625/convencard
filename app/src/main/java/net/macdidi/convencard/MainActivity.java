@@ -25,7 +25,8 @@ import net.macdidi.convencard.PrefActivity;
 public class MainActivity extends AppCompatActivity {
     // 宣告資料庫功能類別欄位變數
     private ItemDAO itemDAO;
-    
+
+    // 格子view的object
     private GridView item_grid;
 
     // ListView使用的自定Adapter物件
@@ -39,12 +40,17 @@ public class MainActivity extends AppCompatActivity {
     // 已選擇項目數量
     private int selectedCount = 0;
 
+    // 浮點操作按鈕
+    private FloatingActionButton fab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 呼叫自己額外宣告的方法，執行所有取得畫面元件物件的工作
         processViews();
+        // 呼叫自己額外宣告的方法，執行所有註冊的工作
         processControllers();
 
         // 建立資料庫物件
@@ -56,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
         itemAdapter = new ItemAdapter(this, R.layout.singleitem, items);
         item_grid.setAdapter(itemAdapter);
 
-        //浮點操作按鈕add動作
-        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void processViews() {
         item_grid = (GridView) findViewById(R.id.grid);
+        fab = (FloatingActionButton)findViewById(R.id.fab);
     }
 
     private void processControllers() {
