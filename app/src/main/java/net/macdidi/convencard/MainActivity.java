@@ -123,9 +123,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void processControllers() {
-
+        // 建立選單項目點擊監聽物件
         AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener() {
-
+            // 第一個參數是使用者操作的GridView物件
+            // 第二個參數是使用者選擇的項目
+            // 第三個參數是使用者選擇的項目編號，第一個是0
+            // 第四個參數在這裡沒有用途
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
@@ -151,13 +154,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-
-
         // 註冊選單項目點擊監聽物件
         item_grid.setOnItemClickListener(itemListener);
 
-        AdapterView.OnItemLongClickListener itemLongListener = new AdapterView.OnItemLongClickListener() {
 
+        // 建立選單項目長按監聽物件
+        AdapterView.OnItemLongClickListener itemLongListener = new AdapterView.OnItemLongClickListener() {
+            // 第一個參數是使用者操作的GridView物件
+            // 第二個參數是使用者選擇的項目
+            // 第三個參數是使用者選擇的項目編號，第一個是0
+            // 第四個參數在這裡沒有用途
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view,
                                            int position, long id) {
@@ -171,7 +177,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         };
-
         // 註冊選單項目長按監聽物件
         item_grid.setOnItemLongClickListener(itemLongListener);
 

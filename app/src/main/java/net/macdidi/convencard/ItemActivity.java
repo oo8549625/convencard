@@ -173,6 +173,7 @@ public class ItemActivity extends AppCompatActivity {
                 Intent result = getIntent();
                 // 設定回傳的記事物件
                 result.putExtra("Item", item);
+                // 設定回傳的ResultCode的值，和Intent的資料
                 setResult(Activity.RESULT_OK, result);
 
             }
