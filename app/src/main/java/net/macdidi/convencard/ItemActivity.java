@@ -126,16 +126,6 @@ public class ItemActivity extends AppCompatActivity {
             contentTextInput.setErrorEnabled(true);
             contentTextInput.setError("請輸入卡號");
         }
-        else if(view.getId() == R.id.code_generation)
-        {
-            contentTextInput.setErrorEnabled(false);
-            String contentText = content_text.getText().toString();
-            item.setContent(contentText);
-            item.setRecFileName(contentText);
-            Bitmap a = encodeAsBitmap(item.getContent());
-            picture.setVisibility(View.VISIBLE);
-            picture.setImageBitmap(a);
-        }
         else if(titleEdit.getText().length() <= 0){
             titleTextInput.setErrorEnabled(true);
             titleTextInput.setError("請輸入商店名稱");
@@ -190,6 +180,24 @@ public class ItemActivity extends AppCompatActivity {
             finish();
         }
     }
+
+    public void clickFunction(View view) {
+        int id = view.getId();
+
+        switch (id) {
+            case R.id.code_generation:
+                contentTextInput.setErrorEnabled(false);
+                String contentText = content_text.getText().toString();
+                item.setContent(contentText);
+                item.setRecFileName(contentText);
+                Bitmap a = encodeAsBitmap(item.getContent());
+                picture.setVisibility(View.VISIBLE);
+                picture.setImageBitmap(a);
+                break;
+        }
+
+    }
+
 
     public void processScan()
     {
