@@ -202,7 +202,7 @@ public class ItemActivity extends AppCompatActivity {
     public void processScan()
     {
         IntentIntegrator integrator = new IntentIntegrator(this);
-        // ONE_D_CODE_TYPES：一维码，QR_CODE_TYPES-二维码，QRcode
+        // ONE_D_CODE_TYPES：一維碼，QR_CODE_TYPES-二維碼，QRcode
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES);
         integrator.setCaptureActivity(ScanActivity.class);
         integrator.setPrompt("請對準卡片上的條碼"); //底部的提示文字
