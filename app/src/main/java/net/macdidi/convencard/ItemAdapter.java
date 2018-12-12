@@ -64,6 +64,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         // 設定標題
         titleView.setText(item.getTitle());
         bigtitle.setText(item.getTitle());
+        bigtitle.setTextSize(25);
         // 設定照片
         // 如果記事資料已經有檔案名稱
         if (item.getFileName() != null && item.getFileName().length() > 0) {
@@ -74,6 +75,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
                 // 顯示照片元件
                 picture.setVisibility(View.VISIBLE);
                 bigtitle.setVisibility(View.INVISIBLE);
+                titleView.setVisibility(View.VISIBLE);
                 // 設定照片
                 FileUtil.fileToImageView(file.getAbsolutePath(), picture);
             }
@@ -81,7 +83,9 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         else
         {
             picture.setVisibility(View.INVISIBLE);
+            titleView.setVisibility(View.INVISIBLE);
             bigtitle.setVisibility(View.VISIBLE);
+
         }
         // 設定是否已選擇
         selectedItem.setVisibility(item.isSelected() ? View.VISIBLE : View.INVISIBLE);
