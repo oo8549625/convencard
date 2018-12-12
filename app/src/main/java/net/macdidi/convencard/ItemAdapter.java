@@ -25,7 +25,6 @@ public class ItemAdapter extends ArrayAdapter<Item> {
     private int resource;
     // 包裝的記事資料
     private List<Item> items;
-    private String fileName;
 
     public ItemAdapter(Context context, int resource, List<Item> items) {
         super(context, resource, items);

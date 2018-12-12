@@ -28,6 +28,11 @@ public class ItemDAO {
     public static final String LASTMODIFY_COLUMN = "lastmodify";
 
     // 使用上面宣告的變數建立表格的SQL指令
+    // NOT NULL表示不能為空值
+    // INTEGER – 整數，對應Java 的byte、short、int 和long。
+    // REAL – 小數，對應Java 的float 和double。
+    // TEXT – 字串，對應Java 的String。
+    // PRIMARY KEY AUTOINCREMENT 每一筆資料編號以後自動儲存在這個欄位
     public static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +

@@ -15,6 +15,9 @@ public class PrefActivity extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // 指定使用的設定畫面配置資源
+        // 這行敘述從API Level 11開始會產生警告訊息
+        // 不過不會影響應用程式的運作
         addPreferencesFromResource(R.xml.mypreference);
         // 讀取顏色設定元件
         defaultColor = (Preference)findPreference("DEFAULT_COLOR");
